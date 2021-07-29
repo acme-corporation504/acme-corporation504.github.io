@@ -1,0 +1,84 @@
+---
+layout: post
+title:  "Git Notes"
+date:   2021-07-08 10:04:38 -0400
+categories: git
+---
+Mostly because I'm terrible at git and in the name of learning.. let's write some shit down!!
+
+See the following [tutorial]
+
+{% highlight shell %}
+hello world
+{% endhighlight %}
+
+- some easy starters for git, learning to use: git status, git log, git add and git commit
+- you will be using git status a lot
+```shell
+$ git status 
+$ git log # get commit hashcodes for checkouts
+$ git add # add files to staging area
+$ git add . # adds all modified files
+$ git commit -m "commit message" # commit files from staging area as a snapshot of the staging area
+
+$ # so you can do the above a bunch of times, modify files, add to staging area, and then choose what to commit
+$ # then you can also start going to different snap shots by using the git checkout
+$ # when you use git checkout, you can see that your repository will be at that snapshot of the commit
+
+$ git checkout <commit-hash> # go to a different commit snapshot
+
+```
+- Now let's actually get the part of version control
+- See the following for [branching, merging and pull requests]
+
+```shell
+$ # now we should start looking at branches - basically creates a new timeline (e.g. if you don't want to work on the main branch, AKA master)
+$ git branch # lists the branches
+$ # note that when you use git checkout, it takes you off the master branch
+$ git checkout master # returns you to the master
+$ git branch <new-branch-name>
+$ git branch #lists the branch and which one you are currently on
+$ git checkout <new-branch-name> # take you to that branch
+```
+
+- you can then continue as usual (adds and commits) but you're on a different branch
+- if you checkout master, you'll find that it doesn't have the commits from your new branch
+- now we can add our new branch to the master branch by doing a merge
+- but this is not actually good practice, want to stay off the master branch
+
+``` shell
+$ git checkout master
+$ git merge <branch-name>
+```
+
+- good practice, that while you're working on the branch, changes might have been made to the master, so might need to do the following to merge master onto your current branch
+
+```shell
+$ git checkout <new-branch-name>
+$ git merge master # will try to merge master into <new-branch-name>
+$ # this may result in conflicts, resolve the conflicts and do the usual git add and git commit
+$ git add
+$ git commit
+$ git push # pushing the branch onto github
+```
+
+- now we need to do a pull request - pushes your code to github to be reviewed
+- on github, select the branch and click the green button which will allow you to create a pull request
+- and then someone else can merge the branch into master
+- then you can delete branch on github
+- can also now do a git pull to get the master onto your local
+
+``` shell
+$ git pull
+```
+
+See the following for changing from https to ssh for git push or pull (if https, will ask for username and password each time):
+
+https://stackoverflow.com/questions/6565357/git-push-requires-username-and-password
+
+this thing was actually more useful...
+
+https://www.youtube.com/watch?v=H5qNpRGB7Qw&ab_channel=DevMarketer
+
+[tutorial]: https://www.youtube.com/watch?v=USjZcfj8yxE&ab_channel=ColtSteele
+[branching, merging and pull requests]: https://www.youtube.com/watch?v=oFYyTZwMyAg&ab_channel=LearnCode.academy
