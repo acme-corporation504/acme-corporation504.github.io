@@ -8,26 +8,25 @@ Mostly because I'm terrible at git and in the name of learning.. let's write som
 
 See the following [tutorial]
 
-{% highlight shell %}
-hello world
-{% endhighlight %}
-
 - some easy starters for git, learning to use: git status, git log, git add and git commit
 - you will be using git status a lot
+
 ```shell
 $ git status 
 $ git log # get commit hashcodes for checkouts
 $ git add # add files to staging area
 $ git add . # adds all modified files
 $ git commit -m "commit message" # commit files from staging area as a snapshot of the staging area
-
-$ # so you can do the above a bunch of times, modify files, add to staging area, and then choose what to commit
-$ # then you can also start going to different snap shots by using the git checkout
-$ # when you use git checkout, you can see that your repository will be at that snapshot of the commit
-
-$ git checkout <commit-hash> # go to a different commit snapshot
-
 ```
+
+- so you can do the above a bunch of times, modify files, add to staging area, and then choose what to commit
+- then you can also start going to different snap shots by using the git checkout
+- when you use git checkout, you can see that your repository will be at that snapshot of the commit
+
+```shell
+$ git checkout <commit-hash> # go to a different commit snapshot
+```
+
 - Now let's actually get the part of version control
 - See the following for [branching, merging and pull requests]
 
